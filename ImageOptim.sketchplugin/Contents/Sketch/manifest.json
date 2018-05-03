@@ -1,0 +1,26 @@
+{
+  "name": "ImageOptim",
+  "description": "Optimize exported images with ImageOptim",
+  "author": "Kornel Lesiński & Ale Muñoz",
+  "authorEmail": "kornel@imageoptim.com",
+  "version": "1.0.0",
+  "identifier": "com.imageoptim.sketch",
+  "homepage": "https://imageoptim.com",
+  "compatibleVersion": 3.8,
+  "commands": [
+    {
+      "identifier": "imageOptim",
+      "handler": "___imageOptim_run_handler_",
+      "script": "plugin.js",
+      "name": "Export and Optimize All Assets…",
+      "handlers": {
+        "run": "___imageOptim_run_handler_",
+        "actions": {
+          "ExportSlices": "___imageOptim_run_handler_",
+          "Export": "___imageOptim_run_handler_"
+        }
+      }
+    }
+  ],
+  "disableCocoaScriptPreprocessor": true
+}

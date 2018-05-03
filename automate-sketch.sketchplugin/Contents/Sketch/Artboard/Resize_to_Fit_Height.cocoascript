@@ -1,0 +1,42 @@
+@import "../Libraries/Google_Analytics.cocoascript";
+
+var onRun = function(context) {
+
+    var doc = context.document;
+    var selection = context.selection;
+    var loopSelection = selection.objectEnumerator();
+    var layer;
+    while (layer = loopSelection.nextObject()) {
+
+        var artboard = layer.parentArtboard();
+
+        if (artboard) {
+            var rectOfChildLayers = getRectFromLayers(artboard);
+            var height = Math.ceil(rectOfChildLayers.y() + rectOfChildLayers.height());
+            artboard.frame().setHeight(height);
+        } else {
+            doc.showMessage('"' + layer.name() + '" is not an Artboard or not inside an Artboard.');
+        }
+
+    }
+
+    ga(context, "Artboard");
+
+};
+
+function getRectFromLayers(parentGroup) {
+
+    var rectArray = NSMutableArray.alloc().init();
+
+    var loopLayers = parentGroup.layers().objectEnumerator();
+    var layer;
+    while (layer = loopLayers.nextObject()) {
+        rectArray.addObject(layer.frame());
+    }
+
+    var rect = MSRect.rectWithUnionOfRects(rectArray);
+
+    // Return {x, y, width, height}
+    return rect;
+
+}

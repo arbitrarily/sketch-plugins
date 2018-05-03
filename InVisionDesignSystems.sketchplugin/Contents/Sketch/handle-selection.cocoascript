@@ -1,0 +1,30 @@
+@import 'persistence.js';
+@import 'debug.js';
+
+function postWebUIEvent(eventName, payload) {
+  var webView = persist.get('dsmMainWebView');
+  if (webView) {
+    var data = JSON.stringify({ eventName: eventName, payload: payload });
+    var script = "window.dsm.handleEvent(" + data + ")";
+    webView.windowScriptObject().evaluateWebScript(script);
+  } else {
+    throw 'No WebView present. Event cannot be posted to the web UI.';
+  }
+}
+
+function onSelectionChanged(context) {
+  // Using context.actionContext.newSelection is the documented way to get the
+  // currently selected layers, but that turns out to be buggy. We get better
+  // results asking the document directly.
+  const count = context
+    .actionContext
+    .document
+    .selectedLayers()
+    .containedLayersCount();
+
+  // todo: fix artboard selection count here
+  postWebUIEvent('onSelectionDidChange', {
+    selectedLayerCount: count,
+    selectedArtboardCount: count
+  });
+}

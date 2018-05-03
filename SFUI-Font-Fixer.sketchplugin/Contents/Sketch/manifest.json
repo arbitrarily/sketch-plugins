@@ -1,0 +1,23 @@
+{
+    "name" : "SFUI Font Fixer",
+    "identifier" : "org.projectrhinestone.sketch.sfuifontfixer",
+    "version" : "1.0",
+    "description" : "Adjusts font, character spacing, line height for labels using San Francisco font.",
+    "authorEmail" : "elethomhunter@gmail.com",
+    "author" : "Elethom Hunter",
+    "commands" : [
+        {
+            "script" : "fix-font.js",
+            "handler" : "onRun",
+            "shortcut" : "cmd ctrl t",
+            "name" : "Fix SFUI Fonts",
+            "identifier" : "fix-sfui-font"
+        }
+    ],
+    "menu": {
+        "isRoot": true,
+        "items": [
+            "fix-sfui-font"
+        ]
+    }
+}

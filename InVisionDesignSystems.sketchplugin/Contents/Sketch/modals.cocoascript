@@ -1,0 +1,68 @@
+function displayImageDragHelpDialog() {
+  return displayAlert({
+    buttons: ['OK'],
+    optionToNotShowAgain: 'DragLayerHelp',
+    title: 'Adding Symbols to Document',
+    description: 'Along with adding the selected layer, DSM will add two additional groups of symbols:\n\n1. Symbols that are nested inside that layer and all of their children.\n\n2. Symbols that are the same size as any of the nested symbols, and can be used as potential overrides.'
+  });
+}
+
+function displayUpdateDocumentDialog() {
+  var result = displayAlert({
+    buttons: ['OK', 'Cancel'],
+    optionToNotShowAgain: 'UpdateDocumentHelp',
+    title: 'Update Document',
+    description: 'Update styles and symbols in the document to their library version.\n\nNote: To import all symbols, styles and colors to the document, click "..."  and select Selective Sync from the menu.'
+  });
+
+  if (result == 1001){
+    //user canceled this operation
+    return false;
+  }
+
+  return true;
+}
+
+function displayNoImageInCacheAlert() {
+  return displayAlert({
+    buttons: ['OK'],
+    title: 'Error Syncing Data to Document',
+    description: 'We could not find the element you tried to insert to the document. Please check you connection and try to fetch the library data again.\nIf you are continuing to experience this issue contact us at support@invisionapp.com',
+    style: 'error'
+  });
+}
+
+function displayImportLibraryFromBrandAi() {
+  return displayAlert({
+    buttons: ['OK'],
+    title: 'Import Library from Brand.ai',
+    description: 'To import your library from Brand.ai please contact support@invisionapp.com'
+  });
+}
+
+function displayReorderManualIntentConfirmation() {
+  return displayAlert({
+    buttons: ['Switch to Manual', 'Cancel'],
+    title: 'Sort manually?',
+    optionToNotShowAgain: 'ConfirmSortManually',
+    description: 'The items in this folder are currently sorted alphanumerically. To rearrange them, switch to manual sorting. This applies to everyone viewing this library.\n'
+  });
+}
+
+function displayReorderAlphanumericallyIntentConfirmation() {
+  return displayAlert({
+    buttons: ['Confirm', 'Cancel'],
+    title: 'Sort alphanumerically?',
+    optionToNotShowAgain: 'ConfirmSortAphanumerically',
+    description: 'If you switch to alphanumeric sorting, items in this folder will be sorted by name and you will not be able to rearrange them manually. This applies to everyone viewing this library.\n'
+  });
+}
+
+
+function displayPreventReorderingWhileAlphanumeric() {
+  return displayAlert({
+    buttons: ['OK'],
+    title: 'Switch to manual',
+    description: 'The items in this folder are currently sorted alphanumerically. To rearrange them, switch the folder to manual sorting.\n'
+  });
+}

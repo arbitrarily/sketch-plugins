@@ -1,0 +1,30 @@
+@import "../Libraries/Google_Analytics.cocoascript";
+
+var onRun = function(context) {
+
+    var doc = context.document;
+
+    var exportableLayers = doc.currentPage().exportableLayers();
+    var count = 0;
+
+    for(var i = 0; i < exportableLayers.count(); i++) {
+        var exportableLayer = exportableLayers[i];
+        if (exportableLayer.class() == "MSSliceLayer") {
+            exportableLayer.removeFromParent();
+            count ++;
+        }
+    }
+
+    var message;
+    if (count > 1) {
+        message = count + " slices have been removed in current page.";
+    } else if (count == 1) {
+        message = "1 slice have been removed in current page.";
+    } else {
+        message = "Not any slice found in current page.";
+    }
+    doc.showMessage(message);
+
+    ga(context, "Slice");
+
+};

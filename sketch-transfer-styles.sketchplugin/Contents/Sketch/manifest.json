@@ -1,0 +1,37 @@
+{
+    "name": "Copy/Paste Shared Styles",
+    "description": "Copy and Paste Shared Styles between layers.",
+    "author": "Francis Vega",
+    "author": "hisconer@gmail.com",
+    "homepage": "",
+    "version": 0.6,
+    "identifier": "com.example.sketch.copystyles",
+    "compatibleVersion": "48.2",
+    "bundleVersion": 1,
+    "commands": [
+        {
+            "name": "Copy Shared Style",
+            "identifier": "copystyle",
+            "handlers" : {
+                "run" : "copyStyle"
+            },
+            "script": "sketch-copy-style.js"
+        },
+        {
+            "name": "Paste Shared Style",
+            "identifier": "pastestyle",
+            "handlers" : {
+                "run" : "pasteStyle"
+            },
+            "script": "sketch-copy-style.js"
+        }
+    ],
+    "menu": {
+        "title": "Copy/Paste Shared Styles",
+        "items": [
+            "copystyle",
+            "pastestyle"
+        ]
+    }
+}
+

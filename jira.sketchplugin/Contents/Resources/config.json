@@ -1,0 +1,16 @@
+{
+  "logLevel": 10,
+  "jiraSketchIntegrationBaseUrl": "https://sketch.atlassian.com",
+  "analyticsApiBaseUrl": "https://mgas.prod.public.atl-paas.net/v1",
+  "bearerTokenExpirySafetyMargin": 60,
+  "bearerTokenRefreshInterval": 600000,
+  "thumbnailDownloadConcurrency": 4,
+  "attachmentUploadConcurrency": 4,
+  "thumbnailRetryMax": 25,
+  "thumbnailRetryDelay": 600,
+  "userAuthorizationPollInterval": 2000,
+  "cocoaDelegatePollInterval": 200,
+  "jiraAuthorizationUrlRetryInterval": 3000,
+  "jiraAuthorizationUrlMaxRetries": 3,
+  "maxUserPickerResults": 20
+}

@@ -1,0 +1,21 @@
+{
+    "name": "Spell Check Whole Page",
+    "identifier": "com.tallwave.spellcheckwholepage",
+    "version": "1.3.0",
+    "Appcast": "https://raw.githubusercontent.com/Tallwave/sketch-spellcheck-all-layers/master/appcast.xml",
+    "description": "Spell Check the entire page",
+    "authorEmail": "info@tallwave.com",
+    "author": "Tallwave",
+    "commands": [{
+        "script": "spellcheckwholepage.js",
+        "handler": "onRun",
+        "name": "Spell Check Whole Page",
+        "identifier": "spellcheckwholepage"
+    }],
+    "menu": {
+        "isRoot": true,
+        "items": [
+            "spellcheckwholepage"
+        ]
+    }
+}

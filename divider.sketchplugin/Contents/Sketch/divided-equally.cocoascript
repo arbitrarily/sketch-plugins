@@ -1,0 +1,62 @@
+
+var onRun = function(context) {
+  var selection = context.selection
+  var doc = context.document;
+
+  var bigger;
+  var allLayers = [];
+
+  if([selection count]<2){
+    showMessage("please select more layers");
+    return;
+  }
+
+  for (var i = 0; i < [selection count]; i++) {
+
+	var layer = [selection objectAtIndex:i]
+
+	var obj = {
+		layer : layer,
+		width : [[layer frame] width],
+		height : [[layer frame] height],
+		x : [[layer frame] x],
+		y : [[layer frame] y]
+	}
+
+	if(!bigger){
+		bigger = obj;
+	}else{
+		if(bigger.width < obj.width]){
+			bigger = obj;
+		}
+	}
+
+	allLayers.push(obj);
+
+  }
+
+	function pick(array,elm){
+		var index = array.indexOf(elm);
+		if (index > -1) {
+		    array.splice(index, 1);
+		}
+		return array;
+	}
+
+	var others = pick(allLayers,bigger);
+
+	var w = Math.round(bigger.width / others.length);
+
+	for (var i = 0; i < others.length; i++) {
+		var other = others[i].layer;
+		var x = Math.round(bigger.x+w*i);
+		[[other frame] setX:x];
+		[[other frame] setWidth:w];
+		// [[others[i].layer frame] setX:(bigger.x+w*i)];
+		// [[others[i].layer frame] setWidth:w];
+	}
+
+    function showMessage(text){
+        [doc showMessage:text];
+    }
+}

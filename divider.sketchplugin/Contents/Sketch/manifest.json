@@ -1,0 +1,22 @@
+{
+	"author": "James Yang",
+	"homepage": "http://jamestw.logdown.com",
+	"commands": [{
+		"script": "divided-equally.cocoascript",
+		"handler": "onRun",
+		"shortcut": "control + alt + command + d",
+		"name": "divided by selection",
+		"identifier": "divided-selection"
+	}],
+	"menu": {
+		"items": [
+			"divided-selection"
+		],
+		"title": "divide selected"
+	},
+	"identifier": "com.example.sketch.939a3e1a-7a20-4f0a-bb33-b31955f9a71a",
+	"version": "0.1",
+	"description": "divide selected",
+	"authorEmail": "jawa.yang@gmail.com",
+	"name": "Sketch Divider"
+}
