@@ -1,0 +1,26 @@
+{
+  "compatibleVersion": "48.1",
+  "bundleVersion": 1,
+  "identifier": "com.shutterstock.plugin.sketch",
+  "commands": [
+    {
+      "name": "Shutterstock",
+      "identifier": "shutterstock",
+      "script": "shutterstock.js",
+      "shortcut": "ctrl shift w"
+    }
+  ],
+  "menu": {
+    "title": "Shutterstock",
+    "isRoot": true,
+    "items": [
+      "shutterstock"
+    ]
+  },
+  "appcast": "https://plugins.shutterstock.com/updates/sketch/appcast.xml",
+  "version": "1.0.3",
+  "description": "Shutterstock for Sketch",
+  "name": "Shutterstock",
+  "disableCocoaScriptPreprocessor": true,
+  "author": "Shutterstock, Inc."
+}
